@@ -43,7 +43,7 @@ body{
     width:85%;
     margin:1em auto;
     padding:1em;
-    font-size: 1.5rem;
+    font-size: 0.7rem;
     max-width: 600px;
     
 }
@@ -58,7 +58,7 @@ body{
     max-width: 25%;
 }
 .weather-desc{
-    font-size: 1.3rem;
+    font-size: 1rem;
     border-bottom:2px solid #ffffffef;
     padding-bottom: 0.5em;
 }
@@ -74,13 +74,13 @@ body{
     align-items: center;
 }
 .col p{
-    margin-left:0.7em;
+    margin-left:1em;
 }
 .col .loc{
-    margin-left: 1em;
+    margin-left: 1.5em;
 }
 .col i{
-    font-size:1.5rem;
+    font-size:0.7rem;
 }
 
 .highlights-items>div{
@@ -108,7 +108,7 @@ body{
     padding-top:1em;
 }
 .hourly-time{
-    font-size: 2rem;
+    font-size: 0.7rem;
     display: flex;
     margin:1em auto;
     gap:30px;
@@ -135,7 +135,7 @@ body{
 }
 .fivedays>div>div{
     display: flex;
-    font-size: 1em;
+    font-size: 0.7em;
     justify-content: space-between;
     margin-top: 1em;
 }
