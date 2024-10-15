@@ -1,0 +1,141 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color:#ffffffcc;
+}
+.header{
+    min-height: 30px;
+    padding:2em;
+    color:#fff;
+}
+.logo{
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.searchbox{
+    padding:0.2em 0;
+    font-size: 1.3em;
+    width: 70%;
+    border-radius: 25px;
+    border:5px solid #ffffff7e;
+    color:#fff;
+    background-color: rgba(0, 0, 0, 0);
+  
+}
+.curr{
+   padding:1.3em;
+   border-radius: 50%;
+   background-color: aqua;
+}
+.now,.fivedays,.highlights{
+    background-color: rgba(255, 255, 255, 0.1);
+    width:85%;
+    margin:1em auto;
+    padding:1em;
+    font-size: 1.5rem;
+    max-width: 600px;
+    
+}
+.heading{
+    font-size: 2rem;
+}
+.temp{
+    font-size: 6rem;
+    color:#fff;
+}
+.weather-pic{
+    max-width: 25%;
+}
+.weather-desc{
+    font-size: 1.3rem;
+    border-bottom:2px solid #ffffffef;
+    padding-bottom: 0.5em;
+}
+.now .weather-det{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.col{
+    display: flex;
+    margin-top: 1em;
+    align-items: center;
+}
+.col p{
+    margin-left:0.7em;
+}
+.col .loc{
+    margin-left: 1em;
+}
+.col i{
+    font-size:1.5rem;
+}
+
+.highlights-items>div{
+    background-color: black;
+    margin-top:1em;
+    padding:1em;
+}
+
+.set-rise>div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top:1em;
+}
+.highlights-items img{
+    width:30%;
+}
+.set-time,.rise-time,.humid-value,.pressure-value,.vis-value,.feels-like{
+    font-size: 2.5rem;
+}
+.humidity>div,.pressure>div,.visibility>div,.feels>div{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top:1em;
+}
+.hourly-time{
+    font-size: 2rem;
+    display: flex;
+    margin:1em auto;
+    gap:30px;
+    overflow-x: auto;
+    width: 80%;
+}
+.hourly-time img{
+      width:2rem;
+  
+}
+.hourly-time>div{
+    background-color: rgba(255, 255, 255, 0.1);
+    padding:1em 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.fivedays img{
+    width:2rem;
+    height: 2rem;
+}
+.fivedays>div>div{
+    display: flex;
+    font-size: 1em;
+    justify-content: space-between;
+    margin-top: 1em;
+}
