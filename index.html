@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="header">
-        <h1 class="logo">Weather App </h1>
-        <div class="container">
-            <button id="search-icon" ><i class="fa fa-search"></i></button>
-            <input class="searchbox" type="text" placeholder="search city">
-            <button class="curr">L</button>
+        <div class="logos">
+            <img class="logo" src="./scattered clouds.png">
+            <h1 class="logoheader">Weather App</h1>
         </div>
         
+        <div class="container">
+            <i class="fa fa-search" id="search-icon"></i>
+            <input class="searchbox" type="text" placeholder="search city">
+            <i class="fa-solid fa-location-dot" id="currentlocation"></i> 
+        </div>
+             
     </div>
     <div class="weather">
         <div class="now">
@@ -39,41 +46,41 @@
         </div>
         <div class="fivedays">
             <p class="heading">5 Days Forecast</p>
-            <div>
+            <div class="fivedaysforecast">
             <div>
                 <img src="./heavy-rain.png">
                 <p class="temp1">22°c</p>
-               <p class="date1">2 june</p>
-               <p class="day1">wednesday</p>
-               </div>
-             <div >
-                       <img src="./heavy-rain.png">
-                   <p class="temp2">22°c</p> 
-                       
-               <p class="date2">2 Mar</p>
-               <p class="day2">Tuesday</p>
-               </div>
-               <div >
-                       <img src="./heavy-rain.png">
-                       <p class="temp3">22°c</p>
-               <p class="date3">2 Mar</p>
-               <p class="day3">Tuesday</p>
-               </div>
-               <div >
-                       <img src="./heavy-rain.png">
-                      <p class="temp4">22°c</p>
-               <p class="date4">2 Mar</p>
-               <p class="day4">Tuesday</p>
-               </div>
-               <div>
-                       <img src="./heavy-rain.png">
-                       <p class="temp5">22°c</p>
-               <p class="date5">2 Mar</p>
-               <p class="day5">Tuesday</p>
-               </div>
+            <p class="date1">2 june</p>
+            <p class="day1">wednesday</p>
+            </div>
+          <div >
+                    <img src="./heavy-rain.png">
+                <p class="temp2">22°c</p> 
+                    
+            <p class="date2">2 Mar</p>
+            <p class="day2">Tuesday</p>
+            </div>
+            <div>
+                    <img src="./heavy-rain.png">
+                    <p class="temp3">22°c</p>
+            <p class="date3">2 Mar</p>
+            <p class="day3">Tuesday</p>
+            </div>
+            <div>
+                    <img src="./heavy-rain.png">
+                   <p class="temp4">22°c</p>
+            <p class="date4">2 Mar</p>
+            <p class="day4">Tuesday</p>
+            </div>
+            <div>
+                    <img src="./heavy-rain.png">
+                    <p class="temp5">22°c</p>
+            <p class="date5">2 Mar</p>
+            <p class="day5">Tuesday</p>
+            </div>
+          </div>
         
           </div>
-    </div>
           <div class="highlights">
             <p class="heading">Today Highlights</p>
              <div class="highlights-items">
@@ -126,46 +133,47 @@
                 </div>
                </div> 
         </div>
+        
         <div class="hourly">
             <p class="heading">Today Hourly Forecast</p>
             <div class="hourly-time">
                <div>
-                <p class="hour1">9pm</p> 
+                <p class="hour1">09:00 PM</p> 
                 <img src="./heavy-rain.png"  >
                 <p class="tempathour1">22°c</p>            
             </div>
             <div>
-                <p class="hour2">9pm</p> 
+                <p class="hour2">09:00 PM</p> 
                 <img src="./heavy-rain.png"  >
                 <p class="tempathour2">22°c</p>                        
             </div>
             <div>
-                <p class="hour3">9pm</p> 
+                <p class="hour3">09:00 PM</p> 
                 <img src="./heavy-rain.png"  >
                 <p class="tempathour3">22°c</p>            
             </div>
             <div>
-                <p class="hour4">9pm</p> 
+                <p class="hour4">09:00 PM</p> 
                 <img src="./heavy-rain.png"  >
                 <p class="tempathour4">22°c</p>            
             </div>
             <div>
-                <p class="hour5">9pm</p> 
+                <p class="hour5">09:00 PM</p> 
                 <img src="./heavy-rain.png"  >
                 <p class="tempathour5">22°c</p>            
             </div>
             <div>
-                <p class="hour6">9pm</p> 
+                <p class="hour6">09:00 PM</p> 
                 <img src="./heavy-rain.png"  >
                 <p class="tempathour6">22°c</p>            
             </div>
             <div>
-                <p class="hour7">9pm</p> 
+                <p class="hour7">09:00 PM</p> 
                 <img src="./heavy-rain.png"  >
                 <p class="tempathour7">22°c</p>            
             </div>
             <div>
-                <p class="hour8">9pm</p> 
+                <p class="hour8">09:00 PM</p> 
                 <img src="./heavy-rain.png"  >
                 <p class="tempathour8">22°c</p>            
             </div>
