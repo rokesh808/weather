@@ -6,31 +6,58 @@
 body{
     background-color: black;
     color:#ffffffcc;
+    font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 .header{
-    min-height: 30px;
-    padding:2em;
+  
+    padding:1em;
     color:#fff;
 }
 .logo{
-    font-size: 3rem;
+    width:3rem;
+    height: 3rem;
+}
+.logoheader{
+    font-size: 2rem;
     text-align: center;
     margin-bottom: 0.5em;
 }
-.container{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
+.logos{
+    display:flex;
+    gap:5px;
+    justify-content: center;
 }
+#search-icon{
+    position: relative;
+    font-size: 1.5em;
+    top:3px;
+    left:35px;
+    cursor: pointer;
+}
+#currentlocation{
+    font-size: 1.5em;
+    padding:0.4em;
+    border-radius:50%;
+    background-color: aqua;
+    text-align: center;
+    color:rgb(57, 7, 236);
+    margin-left:1em;
+    cursor: pointer;
+}
+
 .searchbox{
-    padding:0.2em 0;
+    padding:0.2em 1.5em;
     font-size: 1.3em;
-    width: 70%;
+    width: 60%;
+    max-width: 600px;
     border-radius: 25px;
     border:5px solid #ffffff7e;
     color:#fff;
     background-color: rgba(0, 0, 0, 0);
+    margin-left: auto;
+    margin-right:auto;
   
 }
 .curr{
@@ -38,27 +65,31 @@ body{
    border-radius: 50%;
    background-color: aqua;
 }
+
+
 .now,.fivedays,.highlights{
     background-color: rgba(255, 255, 255, 0.1);
     width:85%;
     margin:1em auto;
     padding:1em;
-    font-size: 0.7rem;
-    max-width: 600px;
+    font-size: 1rem;
+    max-width: 500px;
+    border-radius: 10px;
     
 }
 .heading{
-    font-size: 2rem;
+    font-size: 1.3rem;
 }
 .temp{
-    font-size: 6rem;
+    font-size: 3.5rem;
     color:#fff;
 }
 .weather-pic{
+    width:25%;
     max-width: 25%;
 }
 .weather-desc{
-    font-size: 1rem;
+    font-size: 0.9rem;
     border-bottom:2px solid #ffffffef;
     padding-bottom: 0.5em;
 }
@@ -70,23 +101,26 @@ body{
 }
 .col{
     display: flex;
-    margin-top: 1em;
+    margin-top: 0.5em;
     align-items: center;
 }
 .col p{
-    margin-left:1em;
+    margin-left:0.7em;
 }
 .col .loc{
-    margin-left: 1.5em;
+    margin-left: 1em;
 }
 .col i{
-    font-size:0.7rem;
+    font-size:1.3rem;
 }
 
 .highlights-items>div{
     background-color: black;
     margin-top:1em;
     padding:1em;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right:auto;
 }
 
 .set-rise>div{
@@ -96,10 +130,10 @@ body{
     padding-top:1em;
 }
 .highlights-items img{
-    width:30%;
+    width:20%;
 }
 .set-time,.rise-time,.humid-value,.pressure-value,.vis-value,.feels-like{
-    font-size: 2.5rem;
+    font-size: 1.4rem;
 }
 .humidity>div,.pressure>div,.visibility>div,.feels>div{
     display:flex;
@@ -108,34 +142,102 @@ body{
     padding-top:1em;
 }
 .hourly-time{
-    font-size: 0.7rem;
-    display: flex;
-    margin:1em auto;
-    gap:30px;
+    font-size: 0.9rem;
+    margin:1em 1em;
+    gap:20px;
     overflow-x: auto;
-    width: 80%;
+    display: flex;
+
+}
+.hourly-time::-webkit-scrollbar{
+    display: none;
 }
 .hourly-time img{
-      width:2rem;
-  
+    width:2rem;
+
 }
+
 .hourly-time>div{
-    background-color: rgba(255, 255, 255, 0.1);
-    padding:1em 1.5em;
+    background-color:rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
-    gap:20px;
-    justify-content: center;
+    gap:10px;
     align-items: center;
+    min-width:100px;
+    padding:1em 0.5em;
     border-radius: 10px;
+
 }
+
+
 .fivedays img{
     width:2rem;
     height: 2rem;
+    display:block;
+    margin-right: 1em;
 }
-.fivedays>div>div{
+.fivedaysforecast{
+    margin:1em  auto 0;
+}
+.fivedaysforecast>div{
     display: flex;
-    font-size: 0.7em;
     justify-content: space-between;
-    margin-top: 1em;
+    flex:1;
+    font-size: 0.8rem;
+    align-items: center;
+}
+.fivedaysforecast>div p{
+    flex:1;
+}
+@media only screen and (min-width:600px){
+    .header{
+        display:flex;
+        justify-content: space-around;
+    }
+}
+@media only screen and (min-width:900px){
+    .weather{
+        display:flex;
+        flex-wrap:wrap;
+        width:100%;
+        justify-content: center;
+    }
+    .weather>div{
+        margin: 1em 1em;
+    }
+    .now{
+        max-width: 25%;
+        flex-shrink: 1;
+        max-height: 240px;
+    }
+.highlights{
+    min-width :60%;
+    max-width:60%;
+}
+.highlights-items{
+    display:flex;
+    gap:10px;
+    flex-wrap: wrap;
+}
+.sun{
+   max-width: 65% !important;
+}
+.humidity,.pressure,.visibility,.feels{
+    width:30%;
+}
+.set-rise{
+    display:flex;
+}
+
+   .fivedays{
+    max-width: 25%;
+      order:2;
+      margin-top:-3rem !important;
+      max-height: 230px;
+   }
+   .hourly{
+    max-width: 60%;
+    order:10;
+    margin:0.5em 1em !important;
+   }
 }
