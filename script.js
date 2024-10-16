@@ -1,28 +1,57 @@
 const apiKey = 'eed09418de64ad3cf7289ad5140a9026';
-
+const currentweatherurl='https://api.openweathermap.org/data/2.5/weather?units=metric&q=';
+const fivedaysweatherurl = 'https://api.openweathermap.org/data/2.5/forecast?units=metric&q=';
 const city=document.querySelector('.searchbox');
 const btn=document.querySelector('#search-icon');
+const geo=document.querySelector('#currentlocation')
 btn.addEventListener('click', () => {
-  currentWeather(city, apiKey);
+  
+  currentWeather(currentweatherurl+city.value+'&appid='+apiKey);
   setTimeout(() => {
-      fiveDaysForecast(city, apiKey);
-      hourlyForecast(city, apiKey);
+      fiveDaysForecast(fivedaysweatherurl+city.value+'&appid='+apiKey);
+      hourlyForecast(fivedaysweatherurl+city.value+'&appid='+apiKey);
       city.value = "";
-  }, 2000);
+  }, 1000);
 });
-async function currentWeather(city,apiKey){
-          const url='https://api.openweathermap.org/data/2.5/weather?units=metric&q=';
-          const data=await fetch(url+city.value+'&appid='+apiKey);
+geo.addEventListener('click',()=>{
+  getGeolocation();
+}
+)
+
+async function currentWeather(url){
+          const data=await fetch(url);
           const result=await data.json();
-          document.querySelector('.temp').innerHTML=Math.round(result.main.temp)+'°c';
-          const weatherpic=document.querySelector('.weather-pic');
-          weatherpic.src=getSourcePic(result);
-          document.querySelector('.weather-desc').innerHTML=result.weather[0].description;
-          document.querySelector('.loc').innerHTML=result.name+','+result.sys.country;
-          todaydate=getDate(result.dt);
-          document.querySelector('.cal-date').innerHTML=getDate(result.dt);
-          todayHighlights(result);
+          if(data.ok){
+            document.querySelector('.temp').innerHTML=Math.round(result.main.temp)+'°c';
+            const weatherpic=document.querySelector('.weather-pic');
+            weatherpic.src=getSourcePic(result);
+            document.querySelector('.weather-desc').innerHTML=result.weather[0].description;
+            document.querySelector('.loc').innerHTML=result.name+','+result.sys.country;
+            todaydate=getDate(result.dt);
+            document.querySelector('.cal-date').innerHTML=getDate(result.dt);
+            todayHighlights(result);
+          }
+           else {
+            console.error('City not found or API error');
+           }
+          
     }
+    function getGeolocation() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+              const lat = position.coords.latitude;
+              const lon = position.coords.longitude;
+              currentWeather(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
+              fiveDaysForecast(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
+              hourlyForecast(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
+          }, (error) => {
+              console.error("Error getting geolocation:", error);
+              document.getElementById('weather').textContent = "Unable to retrieve your location.";
+          });
+      } else {
+          document.getElementById('weather').textContent = "Geolocation is not supported by this browser.";
+      }
+  }
 function getSourcePic(result){
           if(result.weather[0].main=='Rain')
             return "./heavy-rain.png";
@@ -49,7 +78,7 @@ function getDate(unix){
     return `${day} ${date}, ${month}`;
 }
 function getTime(unix,tzone) {
-  const localtime=new Date((unix)*1000);
+  const localtime = new Date((unix) * 1000);
   const hours = localtime.getHours();
   const minutes = localtime.getMinutes();
   const period = hours >= 12 ? 'PM' : 'AM';
@@ -65,9 +94,8 @@ function todayHighlights(result){
       document.querySelector('.feels-like').innerHTML=result.main.feels_like+'°c';
       document.querySelector('.vis-value').innerHTML=result.visibility/1000+'Km';
 }
-async function fiveDaysForecast(city, apiKey) {
-  const url = 'https://api.openweathermap.org/data/2.5/forecast?units=metric&q=';
-  const result = await fetch(url+city.value+'&appid='+apiKey);
+async function fiveDaysForecast(url){
+  const result = await fetch(url);
   const data=await result.json();
 
   if (!data || !data.list) {
@@ -104,9 +132,8 @@ async function fiveDaysForecast(city, apiKey) {
 }
 
 
-async function hourlyForecast(city, apiKey) {
-  const url = 'https://api.openweathermap.org/data/2.5/forecast?units=metric&q=';
-  const response = await fetch(url + city.value + '&appid=' + apiKey);
+async function hourlyForecast(url) {
+  const response = await fetch(url);
   const data = await response.json();
 
   // Prepare to store the hourly forecast data
@@ -130,3 +157,4 @@ async function hourlyForecast(city, apiKey) {
       document.querySelector(`.hourly .hourly-time div:nth-child(${index + 1}) .hour${index + 1}`).innerHTML = forecast.time;
   });
 }
+window.onload=getGeolocation;
